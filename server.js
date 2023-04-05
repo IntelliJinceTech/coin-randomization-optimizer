@@ -22,13 +22,13 @@ const server = http.createServer((req, res) => {
             resWriteEnd("index.html", "text/html");
             break;
         case "/api":
-            let coinSide;
-            if (params["student"] == "flip") {
+            let coinSide = 'type in "flip" into the input';
+            if (params["coin"] == "flip") {
                 coinSide = Math.random() <= 0.5 ? "heads" : "tails";
                 if (coinSide == "heads") {
-                    coinPath = "https://imgur.com/a/8XnsueE";
+                    coinPath = "https://i.imgur.com/tarpjgm.jpeg";
                 } else {
-                    coinPath = "https://imgur.com/a/qKi37rq";
+                    coinPath = "https://i.imgur.com/HvOOMAg.jpg";
                 }
             }
 
@@ -40,12 +40,12 @@ const server = http.createServer((req, res) => {
             res.end(JSON.stringify(objToJson));
             break;
 
-        case "/css/style.css":
-            fs.readFile("css/style.css", function (err, data) {
-                res.write(data);
-                res.end();
-            });
-            break;
+        // case "/css/style.css":
+        //     fs.readFile("css/style.css", function (err, data) {
+        //         res.write(data);
+        //         res.end();
+        //     });
+        //     break;
         case "/js/main.js":
             resWriteEnd("js/main.js", "text/javascript");
             break;
